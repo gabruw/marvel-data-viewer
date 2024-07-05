@@ -1,0 +1,106 @@
+{
+	"root": true,
+	"parser": "@typescript-eslint/parser",
+	"env": {
+		"node": true,
+		"es2020": true,
+		"browser": true
+	},
+	"parserOptions": {
+		"sourceType": "module",
+		"ecmaVersion": "latest",
+		"project": "tsconfig.json"
+	},
+	"plugins": [
+		"@stylistic/js",
+		"@typescript-eslint/eslint-plugin",
+
+		"react",
+		"react-refresh",
+
+		"jsx-a11y",
+		"testing-library",
+
+		"import",
+		"prettier"
+	],
+	"extends": [
+		"eslint:recommended",
+
+		"plugin:import/errors",
+		"plugin:import/warnings",
+		"plugin:import/recommended",
+
+		"plugin:react/recommended",
+		"plugin:react-hooks/recommended",
+
+		"plugin:jsx-a11y/recommended",
+		"plugin:prettier/recommended",
+		"plugin:@typescript-eslint/recommended"
+	],
+	"settings": {
+		"react": {
+			"version": "detect"
+		},
+		"import/parsers": {
+			"@typescript-eslint/parser": [".ts", ".tsx", ".json"]
+		},
+		"import/resolver": {
+			"typescript": {
+				"alwaysTryTypes": true,
+				"project": "./tsconfig.json"
+			}
+		}
+	},
+	"rules": {
+		"@stylistic/js/semi": ["error", "always"],
+		"@stylistic/js/linebreak-style": ["error", "unix"],
+		"@stylistic/js/indent": [
+			"error",
+			"tab",
+			{ "SwitchCase": 1, "ignoredNodes": ["PropertyDefinition", "ConditionalExpression"] }
+		],
+
+		"react/display-name": "off",
+		"react/react-in-jsx-scope": "off",
+		"@typescript-eslint/no-unused-vars": "error",
+
+		"react-refresh/only-export-components": ["warn", { "allowConstantExport": true }],
+
+		"import/no-self-import": "error",
+		"import/no-default-export": "off",
+		"import/no-unused-modules": "error",
+		"import/no-unassigned-import": "off",
+		"import/no-empty-named-blocks": "error",
+		"import/no-useless-path-segments": "error",
+		"import/no-anonymous-default-export": "error",
+		"import/no-relative-parent-imports": [
+			"error",
+			{
+				"ignore": [
+					"_assets/",
+					"_components/",
+					"_configurations/",
+					"_hooks/",
+					"_pages/",
+					"_routes/",
+					"_storages/",
+					"_styles/",
+					"_types/"
+				]
+			}
+		],
+
+		"import/order": [
+			"error",
+			{
+				"newlines-between": "always",
+				"groups": ["builtin", "external", "internal", ["sibling", "parent"], "index", "unknown"],
+				"alphabetize": {
+					"order": "asc",
+					"caseInsensitive": true
+				}
+			}
+		]
+	}
+}
